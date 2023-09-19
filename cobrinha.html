@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Jogo da Cobrinha</title>
+    <link rel="stylesheet" type="text/css" href="./css/cobrinha.css"/>
+</head>
+<body class="pagina">
+    <header class="cabeçalho">
+        <h1><a href="./pagnicial.html">Godjogos</a></h1>
+    </header>
+
+    <!DOCTYPE html>
+<html>
+<head>
+    <title>Jogo da Cobrinha</title>
+    <link rel="stylesheet" type="text/css" href="./css/cobrinha.css"/>
+</head>
+<body class="pagina">
+    <header class="cabeçalho">
+        <h1 href="./paginicial.html">Godjogos</h1>
+    </header>
+
+    <div class="container">
+        <div class="jogos-container">
+            <section class="jogo">
+                <img class="imgvelha" src="./img/jogodavelha.png" alt="">
+                <a class="jgvelha" href="velha.html">Hash Game</a>
+            </section>
+
+            <section class="jogo">
+                <img class="imgcampo" src="./img/campofoto.jpg" alt="">
+                <a class="jgcampo" href="campominado.html">Minesweeper</a>
+            </section>
+
+            <section class="jogo">
+                <img class="imgnumero" src="./img/numero.jpg" alt="">
+                <a class="jgnumero" href="jogodonumero.html">Guess Number</a>
+            </section>
+
+            <section class="jogo">
+                <img class="imgpong" src="./img/pingpong.png" alt="">
+                <a class="jgpong" href="pong.html">Pong Game</a>
+            </section>
+        </div>
+
+    <!-- Canvas para o jogo -->
+    <canvas id="canvas" width="800" height="600"></canvas>
+
+
+    <script>
+        // Configurações do jogo
+        const canvas = document.getElementById("canvas");
+        const ctx = canvas.getContext("2d");
+        const box = 20;
+        let snake = [{ x: 200, y: 200 }];
+        let direction = "right";
+        let food = { x: 0, y: 0 };
+
+        // Função para criar a comida em uma posição aleatória
+        function createFood() {
+            food.x = Math.floor(Math.random() * (canvas.width / box)) * box;
+            food.y = Math.floor(Math.random() * (canvas.height / box)) * box;
+        }
+
+        // Função para desenhar a cobra e a comida
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Desenhar a cobra
+            var fotoCobra = new Image();
+            fotoCobra.src="./img/xxx.png";
+            snake.forEach((segment) => {
+                ctx.drawImage(fotoCobra, segment.x, segment.y, box, box);
+            });
+
+            // Desenhar a comida
+            var fotoCom = new Image();
+            fotoCom.src = "./img/racao.png"
+            ctx.drawImage(fotoCom, food.x, food.y, box, box);
+        }
+
+        // Função para atualizar a posição da cobra
+        function update() {
+            // Movimentar a cobra
+            const head = { x: snake[0].x, y: snake[0].y };
+            switch (direction) {
+                case "up":
+                    head.y -= box;
+                    break;
+                case "down":
+                    head.y += box;
+                    break;
+                case "left":
+                    head.x -= box;
+                    break;
+                case "right":
+                    head.x += box;
+                    break;
+            }
+            snake.unshift(head);
+
+            // Verificar se a cobra colidiu com a comida
+            if (head.x === food.x && head.y === food.y) {
+                // Comer a comida e criar uma nova comida
+                createFood();
+            } else {
+                // Remover o último segmento da cobra
+                snake.pop();
+            }
+        }
+
+        // Função para verificar as teclas pressionadas
+        document.addEventListener("keydown", (event) => {
+            switch (event.key) {
+                case "ArrowUp":
+                    if (direction !== "down") direction = "up";
+                    break;
+                case "ArrowDown":
+                    if (direction !== "up") direction = "down";
+                    break;
+                case "ArrowLeft":
+                    if (direction !== "right") direction = "left";
+                    break;
+                case "ArrowRight":
+                    if (direction !== "left") direction = "right";
+                    break;
+            }
+        });
+
+        // Função principal do jogo
+        function gameLoop() {
+            update();
+            draw();
+            setTimeout(gameLoop, 100);
+        }
+
+        // Iniciar o jogo
+        createFood();
+        gameLoop();
+    </script>
+</body>
+</html>

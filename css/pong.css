@@ -1,0 +1,94 @@
+canvas {
+    background-color: black;
+    display: block;
+    margin: 0 auto;
+    margin-left: 140px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza o conteúdo horizontalmente */
+    justify-content: center; /* Centraliza o conteúdo verticalmente */
+    height: 100vh; /* Altura da viewport */
+    margin: 0;
+}
+
+.cabeçalho {
+    background-color: #2ecc71; /* Cor de fundo verde */
+    padding: 10px 0;
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2; /* Aumente o z-index para garantir que o cabeçalho esteja acima do conteúdo */
+}
+
+/* Adicione um margin-left ao <h1> para ajustar o posicionamento */
+.cabeçalho h1 {
+    margin-left: 20px; /* Ajuste o valor conforme necessário para mover "Godjogos" para a direita */
+}
+
+.pagina {
+    background-color: #333; /* Cor de fundo preta */
+    color: white; /* Cor do texto */
+    font-family: Arial, sans-serif;
+    padding: 100px 20px 20px; /* Adicione um padding-top para evitar a sobreposição do cabeçalho */
+}
+
+section {
+    display: flex;
+    flex-direction: column; /* Alterado para empilhar os jogos verticalmente */
+    align-items: center;
+    margin: 20px;
+}
+
+img {
+    width: 100px; /* Largura das imagens */
+    padding: 20px;
+    border: 2px solid #2ecc71; /* Borda verde ao redor das imagens */
+    border-radius: 10px; /* Borda arredondada */
+}
+
+a {
+    text-decoration: none;
+    color: #2ecc71; /* Cor do link verde */
+    font-weight: bold;
+    padding: 10px 20px;
+    background-color: white; /* Cor de fundo branca para os links */
+    border: 2px solid #2ecc71; /* Borda verde para os links */
+    border-radius: 5px; /* Borda arredondada para os links */
+    transition: background-color 0.3s, color 0.3s; /* Efeito de transição suave */
+}
+
+a:hover {
+    background-color: #2ecc71; /* Cor de fundo verde ao passar o mouse */
+    color: white; /* Cor do texto branco ao passar o mouse */
+}
+
+.container {
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente na página */
+    align-items: center; /* Centraliza verticalmente na página */
+    height: 100vh;
+    margin-top: -100px ;
+    
+}
+
+.jogos-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Cria duas colunas iguais */
+    gap: 20px; /* Espaçamento entre os jogos */
+    margin: 20px 0 20px -100px; /* Margem superior, direita, inferior e esquerda */
+    justify-content: flex-start; /* Alinha os jogos à esquerda da tela */
+    margin-left: 2px;
+}
+
+.jogo {
+    flex: 0 0 calc(50% - 20px); /* Define a largura de cada jogo com espaçamento */
+    text-align: center;
+}

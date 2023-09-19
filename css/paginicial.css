@@ -1,0 +1,70 @@
+.cabeçalho {
+    background-color: #2ecc71; /* Cor de fundo verde */
+    padding: 10px 0;
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2; /* Aumente o z-index para garantir que o cabeçalho esteja acima do conteúdo */
+}
+
+/* Adicione um margin-left ao <h1> para ajustar o posicionamento */
+.cabeçalho h1 {
+    margin-left: 20px; /* Ajuste o valor conforme necessário para mover "Godjogos" para a direita */
+}
+
+.pagina {
+    background-color: #333; /* Cor de fundo preta */
+    color: white; /* Cor do texto */
+    font-family: Arial, sans-serif;
+    padding: 100px 20px 20px; /* Adicione um padding-top para evitar a sobreposição do cabeçalho */
+}
+.subtitulo {
+    color: #2ecc71; /* Cor do subtitulo verde */
+    text-align: center;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+
+img {
+    width: 100px; /* Largura das imagens */
+    padding: 20px;
+    border: 2px solid #2ecc71; /* Borda verde ao redor das imagens */
+    border-radius: 10px; /* Borda arredondada */
+}
+
+a {
+    text-decoration: none;
+    color: #2ecc71; /* Cor do link verde */
+    font-weight: bold;
+    padding: 10px 20px;
+    background-color: white; /* Cor de fundo branca para os links */
+    border: 2px solid #2ecc71; /* Borda verde para os links */
+    border-radius: 5px; /* Borda arredondada para os links */
+    transition: background-color 0.3s, color 0.3s; /* Efeito de transição suave */
+}
+
+a:hover {
+    background-color: #2ecc71; /* Cor de fundo verde ao passar o mouse */
+    color: white; /* Cor do texto branco ao passar o mouse */
+}
+
+.jogos-container {
+    display: flex;
+    flex-wrap: nowrap; /* Impede a quebra para a próxima linha */
+    overflow-x: auto; /* Adiciona uma barra de rolagem horizontal caso o conteúdo não caiba na tela */
+}
+
+.jogo {
+    flex: 0 0 calc(20% - 40px); /* Define a largura de cada jogo com espaçamento */
+    text-align: center;
+}
